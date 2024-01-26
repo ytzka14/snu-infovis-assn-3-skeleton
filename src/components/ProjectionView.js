@@ -43,7 +43,7 @@ const ProjectionView = (props) => { // axesTheta, checkViz, setCheckViz, raw
 			.range([margin+size, margin]);
 
 		if (props.checkViz) {
-			const tncResult = tnc(props.raw, projectedData);
+			const tncResult = tnc(props.raw, projectedData.map(d => [xScale(d.x), yScale(d.y)]));
 			const voronoi = d3.Delaunay.from(projectedData.map(d => [xScale(d.x), yScale(d.y)])).voronoi([margin, margin, margin+size, margin+size]);
 			const tncData = tncResult.trust.map((e, i) => [e, tncResult.conti[i], voronoi.cellPolygon(i)]); // [[trust, conti, voronoi], [trust, conti, voronoi], ...]
 
@@ -59,10 +59,12 @@ const ProjectionView = (props) => { // axesTheta, checkViz, setCheckViz, raw
 			svg.selectAll("polygon").remove();
 		}
 
-		svg.selectAll("circle")
-			.data(projectedData)
+		const points = svg.selectAll("circle").data(projectedData);
+
+		points
 			.enter()
 			.append("circle")
+			.merge(points)
 			.attr("cx", d => xScale(d.x))
 			.attr("cy", d => yScale(d.y))
 			.attr("r", 2)
@@ -71,7 +73,7 @@ const ProjectionView = (props) => { // axesTheta, checkViz, setCheckViz, raw
 		return () => {
 			svg.selectAll("*").remove();
 		}
-	}, [projectedData, props.checkViz, props.raw]);
+	}, [projectedData, props]);
 
 	return (
 		<div className="projectionView">

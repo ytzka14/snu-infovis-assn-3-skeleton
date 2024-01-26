@@ -3,6 +3,30 @@
 	fill: white;
 }
 
-.voronoi-polygon {
-	z-index: -1;
+.dragCircle {
+	fill: black;
+}
+
+.dragCircle:hover {
+	fill: red;
+}
+
+.dragPath {
+	stroke: black;
+}
+
+.dragGroup:has(.dragCircle:hover) {
+	fill: red;
+}
+
+.dragGroup:has(.dragCircle:hover) > .dragPath {
+	stroke: red;
+}
+
+.active {
+	fill: red;
+}
+
+.active .dragPath {
+	stroke: red;
 }

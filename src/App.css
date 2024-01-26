@@ -1,0 +1,8 @@
+.circle {
+	stroke: black;
+	fill: white;
+}
+
+.voronoi-polygon {
+	z-index: -1;
+}

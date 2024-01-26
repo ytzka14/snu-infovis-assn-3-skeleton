@@ -15,13 +15,15 @@ const MainPlot = (props) => {
 				setCheckViz={setCheckViz}
 				raw={props.raw}
 			/>
-			<AxisView
-				axesTheta={axesTheta}
-				setAxesTheta={setAxesTheta}
-				setCheckViz={setCheckViz}
-				attr={props.attr}
-			/>
-			<LegendView/>
+			<div className="subView">
+				<AxisView
+					axesTheta={axesTheta}
+					setAxesTheta={setAxesTheta}
+					setCheckViz={setCheckViz}
+					attr={props.attr}
+				/>
+				<LegendView/>
+			</div>
 		</div>
 	);
 };

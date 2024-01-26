@@ -5,7 +5,7 @@ import * as d3 from "d3";
 
 const ProjectionView = (props) => { // axesTheta, checkViz, setCheckViz, raw
 	const svgRef = useRef(null);
-	const size = 500;
+	const size = 700;
 	const margin = 15;
 
 	const getCoord = (datum) => {
@@ -77,17 +77,17 @@ const ProjectionView = (props) => { // axesTheta, checkViz, setCheckViz, raw
 
 	return (
 		<div className="projectionView">
-			<svg ref={svgRef}/>
+			<svg ref={svgRef} className="projectionSvg"/>
 			{
 				props.checkViz && (
-					<button onClick={() => props.setCheckViz(false)}>
+					<button onClick={() => props.setCheckViz(false)} className="vizButton">
 						Disable CheckViz!!
 					</button>
 				)
 			}
 			{
 				!props.checkViz && (
-					<button onClick={() => props.setCheckViz(true)}>
+					<button onClick={() => props.setCheckViz(true)} className="vizButton">
 						Enable CheckViz!!
 					</button>
 				)

@@ -1,46 +1,46 @@
 .mainPlot {
-	display: flex;
+  display: flex;
 }
 
 .projectionSvg {
-	display: block;
+  display: block;
 }
 
 .vizButton {
-	margin: 15px;
-	height: 30px;
-	width: 150px;
+  margin: 15px;
+  height: 30px;
+  width: 150px;
 }
 
 .circle {
-	stroke: black;
-	fill: white;
+  stroke: black;
+  fill: white;
 }
 
 .dragCircle {
-	fill: black;
+  fill: black;
 }
 
 .dragCircle:hover {
-	fill: red;
+  fill: red;
 }
 
 .dragPath {
-	stroke: black;
+  stroke: black;
 }
 
 .dragGroup:has(.dragCircle:hover) {
-	fill: red;
+  fill: red;
 }
 
 .dragGroup:has(.dragCircle:hover) > .dragPath {
-	stroke: red;
+  stroke: red;
 }
 
 .active {
-	fill: red;
+  fill: red;
 }
 
 .active .dragPath {
-	stroke: red;
+  stroke: red;
 }

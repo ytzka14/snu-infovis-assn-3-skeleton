@@ -6,7 +6,7 @@ import * as d3 from "d3";
 const ProjectionView = (props) => {
   // axesTheta, checkViz, setCheckViz, raw
   const svgRef = useRef(null);
-  const size = 700;
+  const size = 650;
   const margin = 15;
 
   const getCoord = (datum) => {
